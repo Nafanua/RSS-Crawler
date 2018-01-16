@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSS Crawler", "RSS Crawler\RSS Crawler.csproj", "{403568F4-6980-4368-A113-59F87BDA949B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{403568F4-6980-4368-A113-59F87BDA949B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{403568F4-6980-4368-A113-59F87BDA949B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{403568F4-6980-4368-A113-59F87BDA949B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{403568F4-6980-4368-A113-59F87BDA949B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F3DF9E2-5418-4738-A67B-181C70B2FF12}
+	EndGlobalSection
+EndGlobal
