@@ -21,8 +21,10 @@ namespace RSS_Crawler
 
         public void DataExtraction(string url)
         {
+            //Load All titles from Database
             Titles = DA.LoadData();
 
+            //load RSS in Xmldoc
             XmlDocument doc = new XmlDocument();
             doc.Load(url);
 
@@ -33,6 +35,7 @@ namespace RSS_Crawler
 
             int counter = 0;
 
+            //Searching of news in list of articles
             foreach (XmlNode chanel in nodeList)
             {
                 foreach (XmlNode chanel_item in chanel)
@@ -40,8 +43,11 @@ namespace RSS_Crawler
                     if (chanel_item.Name == "item")
                     {
                         XmlNodeList itemsList = chanel_item.ChildNodes;
+
+                        //Creating an instance of a news class and adding in list
                         articles[counter] = new Item();
 
+                        //Filling class fields
                         foreach (XmlNode item in itemsList)
                         {
                             if (item.Name == "title")
@@ -66,6 +72,7 @@ namespace RSS_Crawler
                             }
                         }
 
+                        //Chek for repeating news
                         foreach (var title in Titles)
                         {
                             if (title.Equals(articles[counter].title))
@@ -79,6 +86,7 @@ namespace RSS_Crawler
                             }
                         }
 
+                        //Add new item in Database if it not exist in database
                         if (!coincidenceOfTitles)
                         {
                             DA.SaveData(articles[counter].title, articles[counter].link, articles[counter].description, articles[counter].pubDate, articles[counter].fulltext);
