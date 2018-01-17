@@ -48,19 +48,19 @@ namespace RSS_Crawler
                             {
                                 articles[counter].title = item.InnerText;
                             }
-                            if (item.Name == "link")
+                            else if (item.Name == "link")
                             {
                                 articles[counter].link = item.InnerText;
                             }
-                            if (item.Name == "description")
+                            else if (item.Name == "description")
                             {
                                 articles[counter].description = item.InnerText;
                             }
-                            if (item.Name == "pubDate")
+                            else if (item.Name == "pubDate")
                             {
                                 articles[counter].pubDate = item.InnerText;
                             }
-                            if (item.Name == "fulltext")
+                            else if (item.Name == "fulltext")
                             {
                                 articles[counter].fulltext = item.InnerText;
                             }
