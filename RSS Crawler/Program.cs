@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RSS_Crawler
 {
@@ -10,6 +6,31 @@ namespace RSS_Crawler
     {
         static void Main(string[] args)
         {
+            bool Fail = false;
+
+            Console.Write(" Enter URL of RSS: ");
+            string url = Console.ReadLine();
+            Console.WriteLine();
+
+            Crawler cr = new Crawler();
+
+            try
+            {
+                cr.DataExtraction(url);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Failed");
+                Console.WriteLine(ex.Message);
+                Fail = true;
+            }
+
+            if (!Fail)
+            {
+                Console.WriteLine(" Sucsess");
+            }
+
+            Console.ReadKey();
         }
     }
 }
