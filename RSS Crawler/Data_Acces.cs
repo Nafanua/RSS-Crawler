@@ -1,13 +1,10 @@
-﻿using System;
+﻿using RSS_Crawler.Interfases;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RSS_Crawler
 {
-    class Data_Acces
+    class Data_Acces : IData_Acces
     {
         private SqlConnection conn;
 

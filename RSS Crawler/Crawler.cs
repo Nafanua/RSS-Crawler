@@ -1,15 +1,12 @@
-﻿using System;
+﻿using RSS_Crawler.Interfases;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace RSS_Crawler
 {
-    public class Crawler
+    public class Crawler : ICrawler
     {
-        private Data_Acces DA;
+        private IData_Acces DA;
         private Item[] articles;
         private List<string> Titles;
         private bool coincidenceOfTitles;

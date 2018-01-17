@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RSS_Crawler
+﻿namespace RSS_Crawler
 {
     class Item
     {
-        public string title;
-        public string link;
-        public string description;
-        public string pubDate;
-        public string fulltext;
+        public string title { get; set; }
+        public string link { get; set; }
+        public string description { get; set; }
+        public string pubDate { get; set; }
+        public string fulltext { get; set; }
 
         public Item()
         {

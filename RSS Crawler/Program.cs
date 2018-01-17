@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RSS_Crawler.Interfases;
+using System;
 
 namespace RSS_Crawler
 {
@@ -12,7 +13,7 @@ namespace RSS_Crawler
             string url = Console.ReadLine();
             Console.WriteLine();
 
-            Crawler cr = new Crawler();
+            ICrawler cr = new Crawler();
 
             try
             {

@@ -63,6 +63,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Data_Acces.cs" />
+    <Compile Include="Interfases\ICrawler.cs" />
+    <Compile Include="Interfases\IData_Acces.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
