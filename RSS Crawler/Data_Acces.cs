@@ -33,5 +33,25 @@ namespace RSS_Crawler
 
             conn.Close();
         }
+
+        public List<string> LoadData()
+        {
+            conn.Open();
+
+            SqlCommand comand = new SqlCommand("SELECT Title From Items ", conn);
+            SqlDataReader dataReader = comand.ExecuteReader();
+
+            List<string> titles = new List<string>();
+
+            while (dataReader.Read())
+            {
+                titles.Add(dataReader.GetString(0));
+            }
+
+            dataReader.Close();
+            conn.Close();
+
+            return titles;
+        }
     }
 }

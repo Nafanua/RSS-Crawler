@@ -10,7 +10,7 @@
        <Types>
         <Type Name="Data_Acces" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
          <Messages>
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2018-01-16 19:57:06Z" FixCategory="NonBreaking">
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2018-01-17 13:23:12Z" FixCategory="NonBreaking">
            <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">Реализуйте IDisposable для 'Data_Acces', поскольку он создает члены следующих типов IDisposable: 'SqlConnection'.</Issue>
           </Message>
          </Messages>

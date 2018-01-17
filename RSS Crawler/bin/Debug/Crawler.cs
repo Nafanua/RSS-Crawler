@@ -9,18 +9,22 @@ namespace RSS_Crawler
 {
     public class Crawler
     {
-        Data_Acces DA;
+        private Data_Acces DA;
         private Item[] articles;
-        private bool fail;
+        private List<string> Titles;
+        private bool coincidenceOfTitles;
+
 
         public Crawler()
         {
+            Titles = new List<string>();
             DA = new Data_Acces();
-            fail = false;
+            coincidenceOfTitles = false;
         }
 
         public void DataExtraction(string url)
         {
+            Titles = DA.LoadData();
 
             XmlDocument doc = new XmlDocument();
             doc.Load(url);
@@ -65,13 +69,28 @@ namespace RSS_Crawler
                             }
                         }
 
-                        DA.SaveData(articles[counter].title, articles[counter].link, articles[counter].description, articles[counter].pubDate, articles[counter].fulltext);
+                        foreach (var title in Titles)
+                        {
+                            if (title.Equals(articles[counter].title))
+                            {
+                                coincidenceOfTitles = true;
+                                break;
+                            }
+                            else
+                            {
+                                coincidenceOfTitles = false;
+                            }
+                        }
+
+                        if (!coincidenceOfTitles)
+                        {
+                            DA.SaveData(articles[counter].title, articles[counter].link, articles[counter].description, articles[counter].pubDate, articles[counter].fulltext);
+                        }                        
 
                         counter++;
                     }
                 }
             }
-
         }
     }
 }
