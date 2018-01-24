@@ -10,4 +10,7 @@
     <FallbackCulture>ru-RU</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>http://k.img.com.ua/rss/ru/all_news2.0.xml</StartArguments>
+  </PropertyGroup>
 </Project>

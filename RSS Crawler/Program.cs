@@ -1,4 +1,5 @@
-﻿using RSS_Crawler.Interfases;
+﻿using NLog;
+using RSS_Crawler.Interfases;
 using System;
 
 namespace RSS_Crawler
@@ -7,13 +8,26 @@ namespace RSS_Crawler
     {
         static void Main(string[] args)
         {
+            Logger logger = LogManager.GetCurrentClassLogger();
+
             bool Fail = false;
+            
+            string url = string.Empty;
 
-            Console.Write(" Enter URL of RSS: ");
-            string url = Console.ReadLine();
-            Console.WriteLine();
+            if (args.Length > 0)
+            {
+                url = args[0];
+            }
+            else
+            {
+                Console.Write("Enter URL of RSS: ");
+                url = Console.ReadLine();
+                Console.WriteLine();
+            }
 
-            ICrawler cr = new Crawler();
+            logger.Trace("Crawler started");
+
+            ICrawler cr = new Crawler();           
 
             try
             {
@@ -21,14 +35,13 @@ namespace RSS_Crawler
             }
             catch (Exception ex)
             {
-                Console.WriteLine(" Failed");
-                Console.WriteLine(ex.Message);
+                logger.Error(ex.Message);
                 Fail = true;
             }
 
             if (!Fail)
             {
-                Console.WriteLine(" Sucsess");
+                logger.Trace("Succes");
             }
 
             Console.ReadKey();
