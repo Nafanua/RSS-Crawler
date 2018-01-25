@@ -16,7 +16,7 @@ namespace RSS_Crawler
 
             if (args.Length > 0)
             {
-                url = args[0];
+                url =  args[0];
             }
             else
             {
