@@ -13,12 +13,15 @@ namespace DataContract
         private ModelContext context;
         private bool coincidence;
         private Logger logger;
+        string concatString;
+        int AddedNewsCounter;
 
         public Data_Contract()
         {
             context = new ModelContext();
             coincidence = false;
             logger = LogManager.GetCurrentClassLogger();
+            AddedNewsCounter = 0;
         }
 
         public void MapperStart(Rss extractedData)
@@ -36,7 +39,14 @@ namespace DataContract
             {
                 var itemDbo = Mapper.Map<RssChannelItem, RssChannelItemDbo>(item);
 
-                string concatString = itemDbo.Title + itemDbo.Link;
+                if (itemDbo.Guid != null)
+                {
+                    concatString = itemDbo.Guid + extractedData.Channel.Link;
+                }
+                else
+                {
+                    concatString = itemDbo.Title + extractedData.Channel.Link;
+                }                
 
                 int hashId = concatString.GetHashCode();
 
@@ -47,6 +57,7 @@ namespace DataContract
                 if (!coincidence)
                 {
                     context.Items.Add(itemDbo);
+                    AddedNewsCounter++;
                 }                
             }
 
@@ -55,6 +66,7 @@ namespace DataContract
             try
             {
                 context.SaveChanges();
+                logger.Trace("Was added {0} news", AddedNewsCounter);
             }
             catch (Exception ex)
             {

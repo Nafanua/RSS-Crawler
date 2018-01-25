@@ -24,7 +24,7 @@ namespace RSS_Crawler
                 url = Console.ReadLine();
                 Console.WriteLine();
             }
-
+            logger.Trace("Target URL: " + url);
             logger.Trace("Crawler started");
 
             ICrawler cr = new Crawler();           
@@ -43,8 +43,6 @@ namespace RSS_Crawler
             {
                 logger.Trace("Succes");
             }
-
-            Console.ReadKey();
         }
     }
 }
